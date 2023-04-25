@@ -1,0 +1,15 @@
+const express = require('express')
+const app=express()
+const aboutUsPage = require('./aboutUsPage.js')
+const contactUsPage = require('./contactUsPage.js')
+const loginPage = require('./loginPage.js')
+const servicePage = require('./servicePage.js')
+app.get('/',(request,response)=>{
+    response.status(500).json("GET Router to Home Page...")
+})
+
+app.use('/aboutUsPage',aboutUsPage)
+app.use('/contactUsPage',contactUsPage)
+app.use('/loginPage',loginPage)
+app.use('/servicePage',servicePage)
+app.listen(4500)

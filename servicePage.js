@@ -13,7 +13,7 @@ router.get('/:id',(request,response) =>{
 })
 
 router.param('id', (request,response, next, id) =>{
-     request.user = listOfService[id - 1]
+     request.user = listOfService[id ]
      next()
 })
 
@@ -30,8 +30,8 @@ const listOfService = [
 
 router.route('/:id')
     .get((request,response)=>{  
-        const serviceId = Number(request.params.id)
-        const getService = listOfService.find((service)=>service.S_NO === serviceId)
+        // const serviceId = Number(request.params.id)
+        // const getService = listOfService.find((service)=>service.S_NO === serviceId)
         if(!getService)
         {
             response.status(404).send("Service not Found...")
